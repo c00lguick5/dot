@@ -1,0 +1,279 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local SynapseX = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local TopBar = Instance.new("Frame")
+local ImageLabel = Instance.new("ImageLabel")
+local TextLabel = Instance.new("TextLabel")
+local CodeBar = Instance.new("TextBox")
+local Execute = Instance.new("TextButton")
+local Clear = Instance.new("TextButton")
+local attach = Instance.new("TextButton")
+local savefile = Instance.new("TextButton")
+local openfile = Instance.new("TextButton")
+local attach_2 = Instance.new("TextButton")
+local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+
+--Properties:
+
+SynapseX.Name = "SynapseX"
+SynapseX.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+SynapseX.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = SynapseX
+MainFrame.BackgroundColor3 = Color3.fromRGB(65, 65, 65)
+MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MainFrame.BorderSizePixel = 0
+MainFrame.Position = UDim2.new(0, 124, 0, 128)
+MainFrame.Size = UDim2.new(0, 417, 0, 218)
+
+TopBar.Name = "TopBar"
+TopBar.Parent = MainFrame
+TopBar.BackgroundColor3 = Color3.fromRGB(72, 72, 72)
+TopBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TopBar.BorderSizePixel = 0
+TopBar.Position = UDim2.new(0, 0, -0.0362254865, 0)
+TopBar.Size = UDim2.new(0, 417, 0, 26)
+
+ImageLabel.Parent = TopBar
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BackgroundTransparency = 1.000
+ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel.BorderSizePixel = 0
+ImageLabel.Position = UDim2.new(-0.00479616318, 0, 0.0399999991, 0)
+ImageLabel.Size = UDim2.new(0, 28, 0, 25)
+ImageLabel.Image = "rbxassetid://9524079125"
+
+TextLabel.Parent = TopBar
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.21822542, 0, 0.239999697, 0)
+TextLabel.Size = UDim2.new(0, 224, 0, 15)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Synapse X Revived SS"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+CodeBar.Name = "CodeBar"
+CodeBar.Parent = MainFrame
+CodeBar.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+CodeBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
+CodeBar.BorderSizePixel = 0
+CodeBar.Position = UDim2.new(0.0311750602, 0, 0.119266056, 0)
+CodeBar.Size = UDim2.new(0, 383, 0, 157)
+CodeBar.Font = Enum.Font.Code
+CodeBar.PlaceholderText = "-- made by ck5c00lkidd and c00lgui_v2lolCK5"
+CodeBar.Text = ""
+CodeBar.TextColor3 = Color3.fromRGB(255, 255, 255)
+CodeBar.TextSize = 14.000
+CodeBar.TextWrapped = true
+CodeBar.TextXAlignment = Enum.TextXAlignment.Left
+CodeBar.TextYAlignment = Enum.TextYAlignment.Top
+
+Execute.Name = "Execute"
+Execute.Parent = MainFrame
+Execute.BackgroundColor3 = Color3.fromRGB(85, 85, 85)
+Execute.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Execute.BorderSizePixel = 0
+Execute.Position = UDim2.new(0.0311750602, 0, 0.880733967, 0)
+Execute.Size = UDim2.new(0, 60, 0, 19)
+Execute.Font = Enum.Font.Code
+Execute.Text = "Execute"
+Execute.TextColor3 = Color3.fromRGB(255, 255, 255)
+Execute.TextSize = 14.000
+
+Clear.Name = "Clear"
+Clear.Parent = MainFrame
+Clear.BackgroundColor3 = Color3.fromRGB(85, 85, 85)
+Clear.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Clear.BorderSizePixel = 0
+Clear.Position = UDim2.new(0.203836933, 0, 0.880733967, 0)
+Clear.Size = UDim2.new(0, 60, 0, 19)
+Clear.Font = Enum.Font.Code
+Clear.Text = "Clear"
+Clear.TextColor3 = Color3.fromRGB(255, 255, 255)
+Clear.TextSize = 14.000
+
+attach.Name = "attach"
+attach.Parent = MainFrame
+attach.BackgroundColor3 = Color3.fromRGB(85, 85, 85)
+attach.BorderColor3 = Color3.fromRGB(0, 0, 0)
+attach.BorderSizePixel = 0
+attach.Position = UDim2.new(0.532374084, 0, 0.880733967, 0)
+attach.Size = UDim2.new(0, 60, 0, 19)
+attach.Font = Enum.Font.Code
+attach.Text = "Attach"
+attach.TextColor3 = Color3.fromRGB(255, 255, 255)
+attach.TextSize = 14.000
+attach.TextWrapped = true
+
+savefile.Name = "save file"
+savefile.Parent = MainFrame
+savefile.BackgroundColor3 = Color3.fromRGB(85, 85, 85)
+savefile.BorderColor3 = Color3.fromRGB(0, 0, 0)
+savefile.BorderSizePixel = 0
+savefile.Position = UDim2.new(0.700239837, 0, 0.880733967, 0)
+savefile.Size = UDim2.new(0, 60, 0, 19)
+savefile.Font = Enum.Font.Code
+savefile.Text = "Save File"
+savefile.TextColor3 = Color3.fromRGB(255, 255, 255)
+savefile.TextScaled = true
+savefile.TextSize = 14.000
+savefile.TextWrapped = true
+
+openfile.Name = "open file"
+openfile.Parent = MainFrame
+openfile.BackgroundColor3 = Color3.fromRGB(85, 85, 85)
+openfile.BorderColor3 = Color3.fromRGB(0, 0, 0)
+openfile.BorderSizePixel = 0
+openfile.Position = UDim2.new(0.371702641, 0, 0.880733967, 0)
+openfile.Size = UDim2.new(0, 60, 0, 19)
+openfile.Font = Enum.Font.Code
+openfile.Text = "Open File"
+openfile.TextColor3 = Color3.fromRGB(255, 255, 255)
+openfile.TextScaled = true
+openfile.TextSize = 14.000
+openfile.TextWrapped = true
+
+attach_2.Name = "attach"
+attach_2.Parent = MainFrame
+attach_2.BackgroundColor3 = Color3.fromRGB(85, 85, 85)
+attach_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+attach_2.BorderSizePixel = 0
+attach_2.Position = UDim2.new(0.868105531, 0, 0.880733967, 0)
+attach_2.Size = UDim2.new(0, 47, 0, 19)
+attach_2.Font = Enum.Font.Code
+attach_2.Text = "secret button :)"
+attach_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+attach_2.TextScaled = true
+attach_2.TextSize = 14.000
+attach_2.TextWrapped = true
+
+UIAspectRatioConstraint.Parent = SynapseX
+UIAspectRatioConstraint.AspectRatio = 1.351
+
+-- Scripts:
+
+local function BFQN_fake_script() -- MainFrame.Dragify 
+	local script = Instance.new('LocalScript', MainFrame)
+
+	local UIS = game:GetService("UserInputService")
+	function dragify(Frame)
+	    dragToggle = nil
+	    local dragSpeed = 0
+	    dragInput = nil
+	    dragStart = nil
+	    local dragPos = nil
+	    function updateInput(input)
+	        local Delta = input.Position - dragStart
+	        local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+	        game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.25), {Position = Position}):Play()
+	    end
+	    Frame.InputBegan:Connect(function(input)
+	        if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
+	            dragToggle = true
+	            dragStart = input.Position
+	            startPos = Frame.Position
+	            input.Changed:Connect(function()
+	                if input.UserInputState == Enum.UserInputState.End then
+	                    dragToggle = false
+	                end
+	            end)
+	        end
+	    end)
+	    Frame.InputChanged:Connect(function(input)
+	        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+	            dragInput = input
+	        end
+	    end)
+	    game:GetService("UserInputService").InputChanged:Connect(function(input)
+	        if input == dragInput and dragToggle then
+	            updateInput(input)
+	        end
+	    end)
+	end
+	
+	dragify(script.Parent)
+end
+coroutine.wrap(BFQN_fake_script)()
+local function KWCCCU_fake_script() -- Execute.LocalScript 
+	local script = Instance.new('LocalScript', Execute)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.ExecuteEvent:FireServer(script.Parent.Parent.CodeBar.Text)
+	end)
+end
+coroutine.wrap(KWCCCU_fake_script)()
+local function RBYRVC_fake_script() -- Clear.LocalScript 
+	local script = Instance.new('LocalScript', Clear)
+
+	-- This LocalScript goes INSIDE the TextButton named "RunCodeButton"
+	
+	local button = script.Parent
+	
+	button.MouseButton1Click:Connect(function()
+	print("lol this does nothing")
+	end)
+	
+end
+coroutine.wrap(RBYRVC_fake_script)()
+local function RCSN_fake_script() -- attach.LocalScript 
+	local script = Instance.new('LocalScript', attach)
+
+	-- This LocalScript goes INSIDE the TextButton named "RunCodeButton"
+	
+	local button = script.Parent
+	
+	button.MouseButton1Click:Connect(function()
+	print("lol this does nothing")
+	end)
+	
+end
+coroutine.wrap(RCSN_fake_script)()
+local function ZTWUPI_fake_script() -- savefile.LocalScript 
+	local script = Instance.new('LocalScript', savefile)
+
+	-- This LocalScript goes INSIDE the TextButton named "RunCodeButton"
+	
+	local button = script.Parent
+	
+	button.MouseButton1Click:Connect(function()
+	print("lol this does nothing")
+	end)
+	
+end
+coroutine.wrap(ZTWUPI_fake_script)()
+local function HYMLX_fake_script() -- openfile.LocalScript 
+	local script = Instance.new('LocalScript', openfile)
+
+	-- This LocalScript goes INSIDE the TextButton named "RunCodeButton"
+	
+	local button = script.Parent
+	
+	button.MouseButton1Click:Connect(function()
+	print("lol this does nothing")
+	end)
+	
+end
+coroutine.wrap(HYMLX_fake_script)()
+local function ODIFOKM_fake_script() -- attach_2.LocalScript 
+	local script = Instance.new('LocalScript', attach_2)
+
+	-- This LocalScript goes INSIDE the TextButton named "RunCodeButton"
+	
+	local button = script.Parent
+	
+	button.MouseButton1Click:Connect(function()
+	print("lol this does nothing")
+	end)
+	
+end
+coroutine.wrap(ODIFOKM_fake_script)()

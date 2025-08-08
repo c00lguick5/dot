@@ -1,0 +1,737 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local RC7 = Instance.new("ScreenGui")
+local Title = Instance.new("TextLabel")
+local Logo = Instance.new("ImageLabel")
+local SideBar = Instance.new("ImageLabel")
+local Login = Instance.new("ImageLabel")
+local Name = Instance.new("TextBox")
+local Name_2 = Instance.new("TextBox")
+local ButtonPressed = Instance.new("ImageLabel")
+local FakeButton = Instance.new("TextButton")
+local Main = Instance.new("ImageLabel")
+local ButtonPressed_2 = Instance.new("ImageLabel")
+local Execute = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
+local Clear = Instance.new("TextButton")
+local SideBarSecond = Instance.new("ImageLabel")
+local RoXploit = Instance.new("TextButton")
+local GlobalData = Instance.new("Folder")
+local MusicData = Instance.new("Folder")
+local GearData = Instance.new("Folder")
+local HatData = Instance.new("Folder")
+local MainData = Instance.new("Folder")
+local ExplorerPanel = Instance.new("Frame")
+local PropertiesPanel = Instance.new("Frame")
+local List = Instance.new("Frame")
+local TextWidth = Instance.new("TextLabel")
+local ScrollFrame = Instance.new("Frame")
+local ScrollDown = Instance.new("ImageButton")
+local ArrowGraphic = Instance.new("Frame")
+local Graphic = Instance.new("Frame")
+local Graphic_2 = Instance.new("Frame")
+local Graphic_3 = Instance.new("Frame")
+local Graphic_4 = Instance.new("Frame")
+local ScrollUp = Instance.new("ImageButton")
+local ArrowGraphic_2 = Instance.new("Frame")
+local Graphic_5 = Instance.new("Frame")
+local Graphic_6 = Instance.new("Frame")
+local Graphic_7 = Instance.new("Frame")
+local Graphic_8 = Instance.new("Frame")
+local ScrollBar = Instance.new("ImageButton")
+local ScrollThumb = Instance.new("ImageButton")
+local GripGraphic = Instance.new("Frame")
+local Frame = Instance.new("Frame")
+local Frame_2 = Instance.new("Frame")
+local Frame_3 = Instance.new("Frame")
+local Header = Instance.new("Frame")
+local TextLabel_3 = Instance.new("TextLabel")
+local property = Instance.new("Frame")
+local name = Instance.new("Frame")
+local unlocked = Instance.new("TextLabel")
+local locked = Instance.new("TextLabel")
+local border = Instance.new("Frame")
+local edit = Instance.new("Frame")
+local locked_2 = Instance.new("TextLabel")
+local box = Instance.new("TextBox")
+local check = Instance.new("ImageButton")
+local ScriptData = Instance.new("Folder")
+local MemeData = Instance.new("Folder")
+local SkyData = Instance.new("Folder")
+local BannedData = Instance.new("Folder")
+local Script_Box = Instance.new("TextBox")
+local Tokens_ = Instance.new("TextLabel")
+local RemoteHighlight_ = Instance.new("TextLabel")
+local Strings_ = Instance.new("TextLabel")
+local Numbers_ = Instance.new("TextLabel")
+local Keywords_ = Instance.new("TextLabel")
+local Globals_ = Instance.new("TextLabel")
+local Comments_ = Instance.new("TextLabel")
+local Exit = Instance.new("TextButton")
+local Minimize = Instance.new("TextButton")
+local ImageButton = Instance.new("ImageButton")
+
+--Properties:
+
+RC7.Name = "RC7"
+RC7.Parent = game.StarterGui.ScreenGui
+RC7.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+RC7.ResetOnSpawn = false
+
+Title.Name = "Title"
+Title.Parent = RC7
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0.386546195, 0, 0.0929549932, 0)
+Title.Size = UDim2.new(0, 329, 0, 30)
+Title.Font = Enum.Font.SourceSans
+Title.Text = ""
+Title.TextColor3 = Color3.fromRGB(0, 0, 0)
+Title.TextSize = 14.000
+
+Logo.Name = "Logo"
+Logo.Parent = Title
+Logo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Logo.BackgroundTransparency = 1.000
+Logo.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Logo.Size = UDim2.new(0, 38, 0, 30)
+Logo.Image = "rbxassetid://9947961879"
+
+SideBar.Name = "SideBar"
+SideBar.Parent = Title
+SideBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SideBar.BorderColor3 = Color3.fromRGB(95, 95, 95)
+SideBar.Position = UDim2.new(0.840950489, 0, 0.999673843, 0)
+SideBar.Size = UDim2.new(0, 52, 0, 293)
+SideBar.Image = "http://www.roblox.com/asset/?id=12349491844"
+
+Login.Name = "Login"
+Login.Parent = SideBar
+Login.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Login.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Login.Position = UDim2.new(-5.33924341, 0, 0, 0)
+Login.Size = UDim2.new(0, 277, 0, 293)
+Login.ZIndex = 0
+Login.Image = "rbxassetid://12349508319"
+
+Name.Name = "Name"
+Name.Parent = Login
+Name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Name.BackgroundTransparency = 1.000
+Name.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Name.Position = UDim2.new(0.251724124, 0, 0.334470928, 0)
+Name.Size = UDim2.new(0, 147, 0, 19)
+Name.Font = Enum.Font.Unknown
+Name.Text = "afk"
+Name.TextColor3 = Color3.fromRGB(182, 104, 105)
+Name.TextScaled = true
+Name.TextSize = 3.000
+Name.TextWrapped = true
+
+Name_2.Name = "Name"
+Name_2.Parent = Login
+Name_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Name_2.BackgroundTransparency = 1.000
+Name_2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Name_2.Position = UDim2.new(0.244827569, 0, 0.419795156, 0)
+Name_2.Size = UDim2.new(0, 147, 0, 19)
+Name_2.Font = Enum.Font.Unknown
+Name_2.Text = "first step copy ur thingy"
+Name_2.TextColor3 = Color3.fromRGB(182, 104, 105)
+Name_2.TextScaled = true
+Name_2.TextSize = 3.000
+Name_2.TextWrapped = true
+
+ButtonPressed.Name = "ButtonPressed"
+ButtonPressed.Parent = Login
+ButtonPressed.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonPressed.BackgroundTransparency = 1.000
+ButtonPressed.BorderColor3 = Color3.fromRGB(27, 42, 53)
+ButtonPressed.BorderSizePixel = 0
+ButtonPressed.Position = UDim2.new(0.33574006, 0, 0.508532405, 0)
+ButtonPressed.Size = UDim2.new(0, 94, 0, 24)
+ButtonPressed.Visible = false
+ButtonPressed.Image = "rbxassetid://12349657383"
+
+FakeButton.Name = "FakeButton"
+FakeButton.Parent = Login
+FakeButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FakeButton.BackgroundTransparency = 1.000
+FakeButton.BorderColor3 = Color3.fromRGB(27, 42, 53)
+FakeButton.Position = UDim2.new(0.335999995, 0, 0.509000003, 0)
+FakeButton.Size = UDim2.new(0, 94, 0, 24)
+FakeButton.Font = Enum.Font.SourceSans
+FakeButton.Text = ""
+FakeButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+FakeButton.TextSize = 14.000
+
+Main.Name = "Main"
+Main.Parent = SideBar
+Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Main.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Main.Position = UDim2.new(-5.33924341, 0, 0, 0)
+Main.Size = UDim2.new(0, 277, 0, 293)
+Main.Visible = false
+Main.ZIndex = 0
+Main.Image = "rbxassetid://12349772165"
+
+ButtonPressed_2.Name = "ButtonPressed"
+ButtonPressed_2.Parent = Main
+ButtonPressed_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonPressed_2.BackgroundTransparency = 1.000
+ButtonPressed_2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+ButtonPressed_2.BorderSizePixel = 0
+ButtonPressed_2.Position = UDim2.new(0.33574006, 0, 0.508532405, 0)
+ButtonPressed_2.Size = UDim2.new(0, 94, 0, 24)
+ButtonPressed_2.Visible = false
+ButtonPressed_2.Image = "rbxassetid://12349657383"
+
+Execute.Name = "Execute"
+Execute.Parent = Main
+Execute.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Execute.BackgroundTransparency = 1.000
+Execute.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Execute.Position = UDim2.new(0.361270845, 0, 0.747907758, 0)
+Execute.Size = UDim2.new(0, 84, 0, 20)
+Execute.Font = Enum.Font.SourceSans
+Execute.Text = ""
+Execute.TextColor3 = Color3.fromRGB(0, 0, 0)
+Execute.TextSize = 14.000
+
+TextLabel.Parent = Main
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BorderColor3 = Color3.fromRGB(27, 42, 53)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.0433213003, 0, 0.69624567, 0)
+TextLabel.Size = UDim2.new(0, 259, 0, 11)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = ""
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 14.000
+
+TextLabel_2.Parent = Main
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0.0897110999, 0, 0.034129642, 0)
+TextLabel_2.Size = UDim2.new(-0.614474177, 423, 0.662116051, 0)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = ""
+TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.TextSize = 14.000
+
+Clear.Name = "Clear"
+Clear.Parent = Main
+Clear.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Clear.BackgroundTransparency = 1.000
+Clear.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Clear.Position = UDim2.new(0.361000001, 89, 0.747907758, 0)
+Clear.Size = UDim2.new(0, 84, 0, 20)
+Clear.Font = Enum.Font.SourceSans
+Clear.Text = ""
+Clear.TextColor3 = Color3.fromRGB(0, 0, 0)
+Clear.TextSize = 14.000
+
+SideBarSecond.Name = "SideBarSecond"
+SideBarSecond.Parent = Main
+SideBarSecond.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SideBarSecond.BorderColor3 = Color3.fromRGB(95, 95, 95)
+SideBarSecond.BorderSizePixel = 0
+SideBarSecond.Position = UDim2.new(1.03249097, 0, 0.300341249, 0)
+SideBarSecond.Size = UDim2.new(0, 32, 0, 199)
+SideBarSecond.Image = "rbxassetid://12349775022"
+
+RoXploit.Name = "Ro-Xploit"
+RoXploit.Parent = Main
+RoXploit.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+RoXploit.BackgroundTransparency = 1.000
+RoXploit.BorderColor3 = Color3.fromRGB(27, 42, 53)
+RoXploit.Position = UDim2.new(0.700361013, 89, 0.768385589, 0)
+RoXploit.Size = UDim2.new(0, 38, 0, 29)
+RoXploit.Font = Enum.Font.SourceSans
+RoXploit.Text = ""
+RoXploit.TextColor3 = Color3.fromRGB(0, 0, 0)
+RoXploit.TextSize = 14.000
+
+GlobalData.Name = "GlobalData"
+GlobalData.Parent = game.StarterGui.ScreenGui["RC7"].Title.SideBar.Main["Ro-Xploit"].Script
+
+MusicData.Name = "MusicData"
+MusicData.Parent = GlobalData
+
+GearData.Name = "GearData"
+GearData.Parent = GlobalData
+
+HatData.Name = "HatData"
+HatData.Parent = GlobalData
+
+MainData.Name = "MainData"
+MainData.Parent = GlobalData
+
+ExplorerPanel.Name = "ExplorerPanel"
+ExplorerPanel.Parent = MainData
+ExplorerPanel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ExplorerPanel.BackgroundTransparency = 0.100
+ExplorerPanel.BorderColor3 = Color3.fromRGB(191, 191, 191)
+ExplorerPanel.Position = UDim2.new(0.5, 0, 0, 0)
+ExplorerPanel.Size = UDim2.new(0.5, 0, 1, 0)
+ExplorerPanel.Visible = false
+
+PropertiesPanel.Name = "PropertiesPanel"
+PropertiesPanel.Parent = MainData
+PropertiesPanel.Active = true
+PropertiesPanel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PropertiesPanel.BackgroundTransparency = 0.100
+PropertiesPanel.BorderColor3 = Color3.fromRGB(149, 149, 149)
+PropertiesPanel.Size = UDim2.new(0.5, 0, 1, 0)
+PropertiesPanel.Visible = false
+
+List.Name = "List"
+List.Parent = PropertiesPanel
+List.BackgroundTransparency = 1.000
+List.BorderColor3 = Color3.fromRGB(27, 42, 53)
+List.ClipsDescendants = true
+List.Position = UDim2.new(0, 0, 0, 18)
+List.Size = UDim2.new(1, -16, 1, -18)
+
+TextWidth.Name = "TextWidth"
+TextWidth.Parent = PropertiesPanel
+TextWidth.BorderColor3 = Color3.fromRGB(27, 42, 53)
+TextWidth.Size = UDim2.new(1, 0, 1, 0)
+TextWidth.Visible = false
+TextWidth.Font = Enum.Font.SourceSans
+TextWidth.Text = "TweenService"
+TextWidth.TextSize = 14.000
+TextWidth.TextXAlignment = Enum.TextXAlignment.Left
+
+ScrollFrame.Name = "ScrollFrame"
+ScrollFrame.Parent = PropertiesPanel
+ScrollFrame.BackgroundTransparency = 1.000
+ScrollFrame.BorderColor3 = Color3.fromRGB(27, 42, 53)
+ScrollFrame.Position = UDim2.new(1, -16, 0, 18)
+ScrollFrame.Size = UDim2.new(0, 16, 1, -18)
+
+ScrollDown.Name = "ScrollDown"
+ScrollDown.Parent = ScrollFrame
+ScrollDown.BackgroundColor3 = Color3.fromRGB(221, 221, 221)
+ScrollDown.BorderColor3 = Color3.fromRGB(149, 149, 149)
+ScrollDown.Position = UDim2.new(0, 0, 1, -16)
+ScrollDown.Size = UDim2.new(0, 16, 0, 16)
+
+ArrowGraphic.Name = "Arrow Graphic"
+ArrowGraphic.Parent = ScrollDown
+ArrowGraphic.BackgroundTransparency = 1.000
+ArrowGraphic.BorderColor3 = Color3.fromRGB(27, 42, 53)
+ArrowGraphic.BorderSizePixel = 0
+ArrowGraphic.Position = UDim2.new(0.5, -4, 0.5, -4)
+ArrowGraphic.Size = UDim2.new(0, 8, 0, 8)
+
+Graphic.Name = "Graphic"
+Graphic.Parent = ArrowGraphic
+Graphic.BackgroundColor3 = Color3.fromRGB(149, 149, 149)
+Graphic.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Graphic.BorderSizePixel = 0
+Graphic.Position = UDim2.new(0.375, 0, 0.625, 0)
+Graphic.Size = UDim2.new(0.25, 0, 0.125, 0)
+
+Graphic_2.Name = "Graphic"
+Graphic_2.Parent = ArrowGraphic
+Graphic_2.BackgroundColor3 = Color3.fromRGB(149, 149, 149)
+Graphic_2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Graphic_2.BorderSizePixel = 0
+Graphic_2.Position = UDim2.new(0.25, 0, 0.5, 0)
+Graphic_2.Size = UDim2.new(0.5, 0, 0.125, 0)
+
+Graphic_3.Name = "Graphic"
+Graphic_3.Parent = ArrowGraphic
+Graphic_3.BackgroundColor3 = Color3.fromRGB(149, 149, 149)
+Graphic_3.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Graphic_3.BorderSizePixel = 0
+Graphic_3.Position = UDim2.new(0.125, 0, 0.375, 0)
+Graphic_3.Size = UDim2.new(0.75, 0, 0.125, 0)
+
+Graphic_4.Name = "Graphic"
+Graphic_4.Parent = ArrowGraphic
+Graphic_4.BackgroundColor3 = Color3.fromRGB(149, 149, 149)
+Graphic_4.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Graphic_4.BorderSizePixel = 0
+Graphic_4.Position = UDim2.new(0, 0, 0.25, 0)
+Graphic_4.Size = UDim2.new(1, 0, 0.125, 0)
+
+ScrollUp.Name = "ScrollUp"
+ScrollUp.Parent = ScrollFrame
+ScrollUp.Active = false
+ScrollUp.BackgroundColor3 = Color3.fromRGB(221, 221, 221)
+ScrollUp.BorderColor3 = Color3.fromRGB(149, 149, 149)
+ScrollUp.Size = UDim2.new(0, 16, 0, 16)
+ScrollUp.AutoButtonColor = false
+
+ArrowGraphic_2.Name = "Arrow Graphic"
+ArrowGraphic_2.Parent = ScrollUp
+ArrowGraphic_2.BackgroundTransparency = 1.000
+ArrowGraphic_2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+ArrowGraphic_2.BorderSizePixel = 0
+ArrowGraphic_2.Position = UDim2.new(0.5, -4, 0.5, -4)
+ArrowGraphic_2.Size = UDim2.new(0, 8, 0, 8)
+
+Graphic_5.Name = "Graphic"
+Graphic_5.Parent = ArrowGraphic_2
+Graphic_5.BackgroundColor3 = Color3.fromRGB(149, 149, 149)
+Graphic_5.BackgroundTransparency = 0.700
+Graphic_5.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Graphic_5.BorderSizePixel = 0
+Graphic_5.Position = UDim2.new(0.375, 0, 0.25, 0)
+Graphic_5.Size = UDim2.new(0.25, 0, 0.125, 0)
+
+Graphic_6.Name = "Graphic"
+Graphic_6.Parent = ArrowGraphic_2
+Graphic_6.BackgroundColor3 = Color3.fromRGB(149, 149, 149)
+Graphic_6.BackgroundTransparency = 0.700
+Graphic_6.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Graphic_6.BorderSizePixel = 0
+Graphic_6.Position = UDim2.new(0.25, 0, 0.375, 0)
+Graphic_6.Size = UDim2.new(0.5, 0, 0.125, 0)
+
+Graphic_7.Name = "Graphic"
+Graphic_7.Parent = ArrowGraphic_2
+Graphic_7.BackgroundColor3 = Color3.fromRGB(149, 149, 149)
+Graphic_7.BackgroundTransparency = 0.700
+Graphic_7.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Graphic_7.BorderSizePixel = 0
+Graphic_7.Position = UDim2.new(0.125, 0, 0.5, 0)
+Graphic_7.Size = UDim2.new(0.75, 0, 0.125, 0)
+
+Graphic_8.Name = "Graphic"
+Graphic_8.Parent = ArrowGraphic_2
+Graphic_8.BackgroundColor3 = Color3.fromRGB(149, 149, 149)
+Graphic_8.BackgroundTransparency = 0.700
+Graphic_8.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Graphic_8.BorderSizePixel = 0
+Graphic_8.Position = UDim2.new(0, 0, 0.625, 0)
+Graphic_8.Size = UDim2.new(1, 0, 0.125, 0)
+
+ScrollBar.Name = "ScrollBar"
+ScrollBar.Parent = ScrollFrame
+ScrollBar.BackgroundColor3 = Color3.fromRGB(242, 242, 242)
+ScrollBar.BorderColor3 = Color3.fromRGB(149, 149, 149)
+ScrollBar.Position = UDim2.new(0, 0, 0, 16)
+ScrollBar.Size = UDim2.new(1, 0, 1, -32)
+ScrollBar.AutoButtonColor = false
+
+ScrollThumb.Name = "ScrollThumb"
+ScrollThumb.Parent = ScrollBar
+ScrollThumb.BackgroundColor3 = Color3.fromRGB(221, 221, 221)
+ScrollThumb.BorderColor3 = Color3.fromRGB(149, 149, 149)
+ScrollThumb.Draggable = true
+ScrollThumb.Size = UDim2.new(0, 16, 0, 75)
+ScrollThumb.AutoButtonColor = false
+
+GripGraphic.Name = "Grip Graphic"
+GripGraphic.Parent = ScrollThumb
+GripGraphic.BackgroundTransparency = 1.000
+GripGraphic.BorderColor3 = Color3.fromRGB(27, 42, 53)
+GripGraphic.BorderSizePixel = 0
+GripGraphic.Position = UDim2.new(0.5, -3, 0.5, -3)
+GripGraphic.Size = UDim2.new(0, 6, 0, 6)
+
+Frame.Parent = GripGraphic
+Frame.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Frame.BorderSizePixel = 0
+Frame.Size = UDim2.new(1, 0, 0.166666672, 0)
+
+Frame_2.Parent = GripGraphic
+Frame_2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Frame_2.BorderSizePixel = 0
+Frame_2.Position = UDim2.new(0, 0, 0.333333343, 0)
+Frame_2.Size = UDim2.new(1, 0, 0.166666672, 0)
+
+Frame_3.Parent = GripGraphic
+Frame_3.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Frame_3.BorderSizePixel = 0
+Frame_3.Position = UDim2.new(0, 0, 0.666666687, 0)
+Frame_3.Size = UDim2.new(1, 0, 0.166666672, 0)
+
+Header.Name = "Header"
+Header.Parent = PropertiesPanel
+Header.BackgroundColor3 = Color3.fromRGB(233, 233, 233)
+Header.BorderColor3 = Color3.fromRGB(149, 149, 149)
+Header.Size = UDim2.new(1, 0, 0, 18)
+
+TextLabel_3.Parent = Header
+TextLabel_3.BackgroundTransparency = 1.000
+TextLabel_3.BorderColor3 = Color3.fromRGB(27, 42, 53)
+TextLabel_3.Position = UDim2.new(0, 4, 0, 0)
+TextLabel_3.Size = UDim2.new(1, -4, 1, 0)
+TextLabel_3.Font = Enum.Font.SourceSans
+TextLabel_3.Text = "Properties"
+TextLabel_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_3.TextSize = 14.000
+TextLabel_3.TextXAlignment = Enum.TextXAlignment.Left
+
+property.Name = "property"
+property.Parent = PropertiesPanel
+property.BackgroundColor3 = Color3.fromRGB(221, 221, 222)
+property.BorderColor3 = Color3.fromRGB(175, 175, 175)
+property.Position = UDim2.new(0, 0, 0, 1)
+property.Size = UDim2.new(1, 0, 0, 22)
+property.Visible = false
+
+name.Name = "name"
+name.Parent = property
+name.BackgroundColor3 = Color3.fromRGB(253, 251, 255)
+name.BackgroundTransparency = 1.000
+name.BorderColor3 = Color3.fromRGB(27, 42, 53)
+name.Size = UDim2.new(0.5, 0, 1, -1)
+
+unlocked.Name = "unlocked"
+unlocked.Parent = name
+unlocked.BackgroundTransparency = 1.000
+unlocked.BorderColor3 = Color3.fromRGB(27, 42, 53)
+unlocked.Position = UDim2.new(0, 5, 0, 0)
+unlocked.Size = UDim2.new(1, -10, 1, 0)
+unlocked.Visible = false
+unlocked.Font = Enum.Font.SourceSans
+unlocked.Text = ""
+unlocked.TextColor3 = Color3.fromRGB(25, 25, 25)
+unlocked.TextSize = 14.000
+unlocked.TextWrapped = true
+unlocked.TextXAlignment = Enum.TextXAlignment.Left
+
+locked.Name = "locked"
+locked.Parent = name
+locked.BackgroundTransparency = 1.000
+locked.BorderColor3 = Color3.fromRGB(27, 42, 53)
+locked.Position = UDim2.new(0, 5, 0, 0)
+locked.Size = UDim2.new(1, -10, 1, 0)
+locked.Visible = false
+locked.Font = Enum.Font.SourceSans
+locked.Text = ""
+locked.TextColor3 = Color3.fromRGB(148, 148, 148)
+locked.TextSize = 14.000
+locked.TextWrapped = true
+locked.TextXAlignment = Enum.TextXAlignment.Left
+
+border.Name = "border"
+border.Parent = property
+border.BackgroundColor3 = Color3.fromRGB(175, 175, 175)
+border.BorderColor3 = Color3.fromRGB(175, 175, 175)
+border.BorderSizePixel = 0
+border.Position = UDim2.new(0.5, 0, 0, 0)
+border.Size = UDim2.new(0, 1, 1, 0)
+
+edit.Name = "edit"
+edit.Parent = property
+edit.BackgroundColor3 = Color3.fromRGB(253, 251, 255)
+edit.BackgroundTransparency = 1.000
+edit.BorderColor3 = Color3.fromRGB(27, 42, 53)
+edit.Position = UDim2.new(0.5, 0, 0, 0)
+edit.Size = UDim2.new(0.5, 0, 1, -1)
+
+locked_2.Name = "locked"
+locked_2.Parent = edit
+locked_2.BackgroundTransparency = 1.000
+locked_2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+locked_2.Position = UDim2.new(0, 5, 0, 0)
+locked_2.Size = UDim2.new(1, -10, 1, 0)
+locked_2.Visible = false
+locked_2.Font = Enum.Font.SourceSans
+locked_2.Text = ""
+locked_2.TextColor3 = Color3.fromRGB(148, 148, 148)
+locked_2.TextSize = 14.000
+locked_2.TextWrapped = true
+locked_2.TextXAlignment = Enum.TextXAlignment.Left
+
+box.Name = "box"
+box.Parent = edit
+box.BackgroundTransparency = 1.000
+box.BorderColor3 = Color3.fromRGB(27, 42, 53)
+box.Position = UDim2.new(0, 5, 0, 0)
+box.Size = UDim2.new(1, -10, 1, 0)
+box.Visible = false
+box.ClearTextOnFocus = false
+box.Font = Enum.Font.SourceSans
+box.Text = ""
+box.TextColor3 = Color3.fromRGB(25, 25, 25)
+box.TextSize = 14.000
+box.TextWrapped = true
+box.TextXAlignment = Enum.TextXAlignment.Left
+
+check.Name = "check"
+check.Parent = edit
+check.BackgroundColor3 = Color3.fromRGB(221, 221, 222)
+check.BorderColor3 = Color3.fromRGB(27, 42, 53)
+check.BorderSizePixel = 0
+check.Position = UDim2.new(0, 5, 0, 5)
+check.Size = UDim2.new(0, 12, 0, 12)
+check.Visible = false
+
+ScriptData.Name = "ScriptData"
+ScriptData.Parent = GlobalData
+
+MemeData.Name = "MemeData"
+MemeData.Parent = GlobalData
+
+SkyData.Name = "SkyData"
+SkyData.Parent = GlobalData
+
+BannedData.Name = "BannedData"
+BannedData.Parent = GlobalData
+
+Script_Box.Name = "Script_Box"
+Script_Box.Parent = Main
+Script_Box.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Script_Box.BackgroundTransparency = 1.000
+Script_Box.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Script_Box.BorderSizePixel = 0
+Script_Box.Position = UDim2.new(0.10415154, 0, 0.0375426114, 0)
+Script_Box.Size = UDim2.new(-0.628914535, 423, 0.658703089, 0)
+Script_Box.ZIndex = 2
+Script_Box.ClearTextOnFocus = false
+Script_Box.Font = Enum.Font.Code
+Script_Box.MultiLine = true
+Script_Box.Text = ""
+Script_Box.TextColor3 = Color3.fromRGB(0, 0, 0)
+Script_Box.TextSize = 15.000
+Script_Box.TextXAlignment = Enum.TextXAlignment.Left
+Script_Box.TextYAlignment = Enum.TextYAlignment.Top
+
+Tokens_.Name = "Tokens_"
+Tokens_.Parent = Script_Box
+Tokens_.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Tokens_.BackgroundTransparency = 1.000
+Tokens_.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Tokens_.Size = UDim2.new(1, 0, 1, 0)
+Tokens_.ZIndex = 5
+Tokens_.Font = Enum.Font.Code
+Tokens_.Text = ""
+Tokens_.TextColor3 = Color3.fromRGB(255, 255, 255)
+Tokens_.TextSize = 15.000
+Tokens_.TextXAlignment = Enum.TextXAlignment.Left
+Tokens_.TextYAlignment = Enum.TextYAlignment.Top
+
+RemoteHighlight_.Name = "RemoteHighlight_"
+RemoteHighlight_.Parent = Script_Box
+RemoteHighlight_.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+RemoteHighlight_.BackgroundTransparency = 1.000
+RemoteHighlight_.BorderColor3 = Color3.fromRGB(27, 42, 53)
+RemoteHighlight_.Size = UDim2.new(1, 0, 1, 0)
+RemoteHighlight_.ZIndex = 5
+RemoteHighlight_.Font = Enum.Font.Code
+RemoteHighlight_.Text = ""
+RemoteHighlight_.TextColor3 = Color3.fromRGB(0, 144, 255)
+RemoteHighlight_.TextSize = 15.000
+RemoteHighlight_.TextXAlignment = Enum.TextXAlignment.Left
+RemoteHighlight_.TextYAlignment = Enum.TextYAlignment.Top
+
+Strings_.Name = "Strings_"
+Strings_.Parent = Script_Box
+Strings_.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Strings_.BackgroundTransparency = 1.000
+Strings_.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Strings_.Size = UDim2.new(1, 0, 1, 0)
+Strings_.ZIndex = 5
+Strings_.Font = Enum.Font.Code
+Strings_.Text = ""
+Strings_.TextColor3 = Color3.fromRGB(76, 175, 80)
+Strings_.TextSize = 15.000
+Strings_.TextXAlignment = Enum.TextXAlignment.Left
+Strings_.TextYAlignment = Enum.TextYAlignment.Top
+
+Numbers_.Name = "Numbers_"
+Numbers_.Parent = Script_Box
+Numbers_.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Numbers_.BackgroundTransparency = 1.000
+Numbers_.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Numbers_.Size = UDim2.new(1, 0, 1, 0)
+Numbers_.ZIndex = 4
+Numbers_.Font = Enum.Font.Code
+Numbers_.Text = ""
+Numbers_.TextColor3 = Color3.fromRGB(255, 198, 0)
+Numbers_.TextSize = 15.000
+Numbers_.TextXAlignment = Enum.TextXAlignment.Left
+Numbers_.TextYAlignment = Enum.TextYAlignment.Top
+
+Keywords_.Name = "Keywords_"
+Keywords_.Parent = Script_Box
+Keywords_.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Keywords_.BackgroundTransparency = 1.000
+Keywords_.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Keywords_.Size = UDim2.new(1, 0, 1, 0)
+Keywords_.ZIndex = 5
+Keywords_.Font = Enum.Font.Code
+Keywords_.Text = ""
+Keywords_.TextColor3 = Color3.fromRGB(248, 109, 124)
+Keywords_.TextSize = 15.000
+Keywords_.TextXAlignment = Enum.TextXAlignment.Left
+Keywords_.TextYAlignment = Enum.TextYAlignment.Top
+
+Globals_.Name = "Globals_"
+Globals_.Parent = Script_Box
+Globals_.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Globals_.BackgroundTransparency = 1.000
+Globals_.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Globals_.Size = UDim2.new(1, 0, 1, 0)
+Globals_.ZIndex = 5
+Globals_.Font = Enum.Font.Code
+Globals_.Text = ""
+Globals_.TextColor3 = Color3.fromRGB(132, 214, 247)
+Globals_.TextSize = 15.000
+Globals_.TextXAlignment = Enum.TextXAlignment.Left
+Globals_.TextYAlignment = Enum.TextYAlignment.Top
+
+Comments_.Name = "Comments_"
+Comments_.Parent = Script_Box
+Comments_.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Comments_.BackgroundTransparency = 1.000
+Comments_.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Comments_.Size = UDim2.new(1, 0, 1, 0)
+Comments_.ZIndex = 5
+Comments_.Font = Enum.Font.Code
+Comments_.Text = ""
+Comments_.TextColor3 = Color3.fromRGB(59, 200, 59)
+Comments_.TextSize = 15.000
+Comments_.TextXAlignment = Enum.TextXAlignment.Left
+Comments_.TextYAlignment = Enum.TextYAlignment.Top
+
+Exit.Name = "Exit"
+Exit.Parent = Title
+Exit.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Exit.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Exit.BorderSizePixel = 0
+Exit.Position = UDim2.new(0.857240438, 0, 0.100000001, 0)
+Exit.Size = UDim2.new(0, 39, 0, 24)
+Exit.Font = Enum.Font.SourceSans
+Exit.Text = "X"
+Exit.TextColor3 = Color3.fromRGB(0, 0, 0)
+Exit.TextScaled = true
+Exit.TextSize = 14.000
+Exit.TextWrapped = true
+
+Minimize.Name = "Minimize"
+Minimize.Parent = Title
+Minimize.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Minimize.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Minimize.BorderSizePixel = 0
+Minimize.Position = UDim2.new(0.617021263, 0, 0.100000001, 0)
+Minimize.Size = UDim2.new(0, 40, 0, 24)
+Minimize.Font = Enum.Font.SourceSans
+Minimize.Text = "_"
+Minimize.TextColor3 = Color3.fromRGB(0, 0, 0)
+Minimize.TextScaled = true
+Minimize.TextSize = 14.000
+Minimize.TextWrapped = true
+
+ImageButton.Parent = Title
+ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageButton.BackgroundTransparency = 1.000
+ImageButton.BorderColor3 = Color3.fromRGB(27, 42, 53)
+ImageButton.BorderSizePixel = 0
+ImageButton.Position = UDim2.new(0.756838918, 0, 0.100000001, 0)
+ImageButton.Size = UDim2.new(0, 27, 0, 26)
+ImageButton.Image = "http://www.roblox.com/asset/?id=12350016304"

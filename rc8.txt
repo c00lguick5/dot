@@ -1,0 +1,433 @@
+--[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+local player = game:GetService("Players").LocalPlayer
+local gui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
+gui.Name = "Rc8"
+gui.ResetOnSpawn = false
+gui.IgnoreGuiInset = true
+-- Themes (dark only)
+local themes = {
+	DarkGreen = {
+		Background = Color3.fromRGB(34, 64, 34),
+		TopBar = Color3.fromRGB(24, 48, 24),
+		TabBar = Color3.fromRGB(24, 48, 24),
+		TabButtonActive = Color3.fromRGB(50, 110, 50),
+		TabButtonInactive = Color3.fromRGB(30, 60, 30),
+		Button = Color3.fromRGB(40, 100, 40),
+		TextBox = Color3.fromRGB(20, 40, 20),
+		OutputBG = Color3.fromRGB(15, 30, 15),
+		TextColor = Color3.new(1, 1, 1),
+		OutputTextColor = Color3.fromRGB(0, 255, 0),
+	},
+	DarkBlue = {
+		Background = Color3.fromRGB(15, 25, 45),
+		TopBar = Color3.fromRGB(10, 20, 35),
+		TabBar = Color3.fromRGB(10, 20, 35),
+		TabButtonActive = Color3.fromRGB(40, 80, 140),
+		TabButtonInactive = Color3.fromRGB(20, 40, 70),
+		Button = Color3.fromRGB(30, 70, 120),
+		TextBox = Color3.fromRGB(10, 20, 35),
+		OutputBG = Color3.fromRGB(5, 10, 20),
+		TextColor = Color3.fromRGB(200, 220, 255),
+		OutputTextColor = Color3.fromRGB(100, 200, 255),
+	},
+	DarkGray = {
+		Background = Color3.fromRGB(40, 40, 40),
+		TopBar = Color3.fromRGB(25, 25, 25),
+		TabBar = Color3.fromRGB(25, 25, 25),
+		TabButtonActive = Color3.fromRGB(90, 90, 90),
+		TabButtonInactive = Color3.fromRGB(60, 60, 60),
+		Button = Color3.fromRGB(70, 70, 70),
+		TextBox = Color3.fromRGB(30, 30, 30),
+		OutputBG = Color3.fromRGB(20, 20, 20),
+		TextColor = Color3.new(1, 1, 1),
+		OutputTextColor = Color3.fromRGB(120, 255, 120),
+	},
+}
+local currentTheme = themes.DarkGreen
+-- Forward declare UI elements
+local frame, topBar, tabBar, logo, topBarText, closeBtn
+local tabButtons = {}
+local tabs = {}
+local settingsTabBtn, settingsTab
+local r6Btn
+local themeButtons = {}
+local activeTabButton = nil
+-- Apply theme function (update all UI colors)
+local function applyTheme(theme)
+	frame.BackgroundColor3 = theme.Background
+	topBar.BackgroundColor3 = theme.TopBar
+	tabBar.BackgroundColor3 = theme.TabBar
+	logo.TextColor3 = theme.OutputTextColor
+	topBarText.TextColor3 = theme.TextColor
+	closeBtn.BackgroundColor3 = theme.Button
+	closeBtn.TextColor3 = theme.TextColor
+	for _, btn in ipairs(tabButtons) do
+		if btn == activeTabButton then
+			btn.BackgroundColor3 = theme.TabButtonActive
+		else
+			btn.BackgroundColor3 = theme.TabButtonInactive
+		end
+		btn.TextColor3 = theme.TextColor
+	end
+	if settingsTabBtn then
+		settingsTabBtn.BackgroundColor3 = (activeTabButton == settingsTabBtn) and theme.TabButtonActive or theme.TabButtonInactive
+		settingsTabBtn.TextColor3 = theme.TextColor
+	end
+	for _, tab in pairs(tabs) do
+		tab.Frame.BackgroundTransparency = 1
+		if tab.TextBox then
+			tab.TextBox.BackgroundColor3 = theme.TextBox
+			tab.TextBox.TextColor3 = theme.TextColor
+		end
+		if tab.OutputLabel then
+			tab.OutputLabel.BackgroundColor3 = theme.OutputBG
+			tab.OutputLabel.TextColor3 = theme.OutputTextColor
+		end
+		if tab.ExecuteBtn then
+			tab.ExecuteBtn.BackgroundColor3 = theme.Button
+			tab.ExecuteBtn.TextColor3 = theme.TextColor
+		end
+		if tab.ClearBtn then
+			tab.ClearBtn.BackgroundColor3 = theme.Button
+			tab.ClearBtn.TextColor3 = theme.TextColor
+		end
+	end
+	if r6Btn then
+		r6Btn.BackgroundColor3 = theme.Button
+		r6Btn.TextColor3 = theme.TextColor
+	end
+	for _, btn in ipairs(themeButtons) do
+		btn.BackgroundColor3 = theme.Button
+		btn.TextColor3 = theme.TextColor
+	end
+	if settingsTab then
+		settingsTab.BackgroundTransparency = 1
+	end
+end
+-- Create main frame
+frame = Instance.new("Frame")
+frame.Name = "MainFrame"
+frame.Size = UDim2.new(0, 500, 0, 400)
+frame.Position = UDim2.new(0.5, -250, 0.5, -200)
+frame.BackgroundColor3 = currentTheme.Background
+frame.BorderSizePixel = 0
+frame.Active = true
+frame.Draggable = true
+frame.Parent = gui
+frame.ClipsDescendants = true
+Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 8)
+-- Top bar
+topBar = Instance.new("Frame")
+topBar.Size = UDim2.new(1, 0, 0, 30)
+topBar.BackgroundColor3 = currentTheme.TopBar
+topBar.BorderSizePixel = 0
+topBar.Parent = frame
+-- Logo
+logo = Instance.new("TextLabel")
+logo.Size = UDim2.new(0, 80, 1, 0)
+logo.Position = UDim2.new(0, 10, 0, 0)
+logo.BackgroundTransparency = 1
+logo.Text = "RC8"
+logo.TextColor3 = currentTheme.OutputTextColor
+logo.Font = Enum.Font.Arcade
+logo.TextSize = 22
+logo.TextXAlignment = Enum.TextXAlignment.Left
+logo.Parent = topBar
+-- Title text
+topBarText = Instance.new("TextLabel")
+topBarText.Size = UDim2.new(1, -100, 1, 0)
+topBarText.Position = UDim2.new(0, 90, 0, 0)
+topBarText.BackgroundTransparency = 1
+topBarText.Text = "- Executor"
+topBarText.TextColor3 = currentTheme.TextColor
+topBarText.Font = Enum.Font.SourceSansBold
+topBarText.TextSize = 16
+topBarText.TextXAlignment = Enum.TextXAlignment.Left
+topBarText.Parent = topBar
+-- Tab bar
+tabBar = Instance.new("Frame")
+tabBar.Size = UDim2.new(1, 0, 0, 30)
+tabBar.Position = UDim2.new(0, 0, 0, 30)
+tabBar.BackgroundColor3 = currentTheme.TabBar
+tabBar.BorderSizePixel = 0
+tabBar.Parent = frame
+-- Helper to create tabs
+local function createScriptTab(name, posX)
+	local tabBtn = Instance.new("TextButton")
+	tabBtn.Size = UDim2.new(0, 120, 1, 0)
+	tabBtn.Position = UDim2.new(0, posX, 0, 0)
+	tabBtn.BackgroundColor3 = currentTheme.TabButtonInactive
+	tabBtn.TextColor3 = currentTheme.TextColor
+	tabBtn.Font = Enum.Font.SourceSansBold
+	tabBtn.TextSize = 16
+	tabBtn.Text = name
+	tabBtn.BorderSizePixel = 0
+	tabBtn.Parent = tabBar
+	Instance.new("UICorner", tabBtn).CornerRadius = UDim.new(0, 6)
+	local tabFrame = Instance.new("Frame")
+	tabFrame.Size = UDim2.new(1, 0, 1, -60)
+	tabFrame.Position = UDim2.new(0, 0, 0, 60)
+	tabFrame.BackgroundTransparency = 1
+	tabFrame.Visible = false
+	tabFrame.Parent = frame
+	local textbox = Instance.new("TextBox")
+	textbox.Size = UDim2.new(1, -20, 0, 200)
+	textbox.Position = UDim2.new(0, 10, 0, 0)
+	textbox.BackgroundColor3 = currentTheme.TextBox
+	textbox.TextColor3 = currentTheme.TextColor
+	textbox.Font = Enum.Font.Code
+	textbox.TextSize = 16
+	textbox.MultiLine = true
+	textbox.ClearTextOnFocus = false
+	textbox.TextXAlignment = Enum.TextXAlignment.Left
+	textbox.TextYAlignment = Enum.TextYAlignment.Top
+	textbox.Text = "-- " .. name .. " tab\n"
+	textbox.Parent = tabFrame
+	Instance.new("UICorner", textbox).CornerRadius = UDim.new(0, 4)
+	local outputLabel = Instance.new("TextLabel")
+	outputLabel.Size = UDim2.new(1, -20, 0, 80)
+	outputLabel.Position = UDim2.new(0, 10, 0, 210)
+	outputLabel.BackgroundColor3 = currentTheme.OutputBG
+	outputLabel.TextColor3 = currentTheme.OutputTextColor
+	outputLabel.Font = Enum.Font.Code
+	outputLabel.TextSize = 14
+	outputLabel.Text = "[ Output will show here ]"
+	outputLabel.TextXAlignment = Enum.TextXAlignment.Left
+	outputLabel.TextYAlignment = Enum.TextYAlignment.Top
+	outputLabel.TextWrapped = true
+	outputLabel.TextScaled = false
+	outputLabel.ClipsDescendants = true
+	outputLabel.TextTruncate = Enum.TextTruncate.AtEnd
+	outputLabel.Parent = tabFrame
+	Instance.new("UICorner", outputLabel).CornerRadius = UDim.new(0, 4)
+	local function createExecutorButton(text, xOffset)
+		local btn = Instance.new("TextButton")
+		btn.Size = UDim2.new(0, 140, 0, 30)
+		btn.Position = UDim2.new(0, xOffset, 0, 300)
+		btn.BackgroundColor3 = currentTheme.Button
+		btn.TextColor3 = currentTheme.TextColor
+		btn.Font = Enum.Font.SourceSansBold
+		btn.TextSize = 16
+		btn.Text = text
+		btn.BorderSizePixel = 0
+		btn.Parent = tabFrame
+		Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 6)
+		return btn
+	end
+	local executeBtn = createExecutorButton("Execute", 10)
+	local clearBtn = createExecutorButton("Clear", 170)
+	return {
+		TabButton = tabBtn,
+		Frame = tabFrame,
+		TextBox = textbox,
+		OutputLabel = outputLabel,
+		ExecuteBtn = executeBtn,
+		ClearBtn = clearBtn,
+	}
+end
+-- Create script tabs
+tabs.Executor = createScriptTab("Executor", 10)
+tabs.Script2 = createScriptTab("Script2", 140)
+tabs.Script3 = createScriptTab("Script3", 270)
+-- Settings tab button
+settingsTabBtn = Instance.new("TextButton")
+settingsTabBtn.Size = UDim2.new(0, 120, 1, 0)
+settingsTabBtn.Position = UDim2.new(0, 400, 0, 0)
+settingsTabBtn.BackgroundColor3 = currentTheme.TabButtonInactive
+settingsTabBtn.TextColor3 = currentTheme.TextColor
+settingsTabBtn.Font = Enum.Font.SourceSansBold
+settingsTabBtn.TextSize = 16
+settingsTabBtn.Text = "Settings"
+settingsTabBtn.BorderSizePixel = 0
+settingsTabBtn.Parent = tabBar
+Instance.new("UICorner", settingsTabBtn).CornerRadius = UDim.new(0, 6)
+-- Settings tab frame
+settingsTab = Instance.new("Frame")
+settingsTab.Size = UDim2.new(1, 0, 1, -60)
+settingsTab.Position = UDim2.new(0, 0, 0, 60)
+settingsTab.BackgroundTransparency = 1
+settingsTab.Visible = false
+settingsTab.Parent = frame
+-- R6 Converter button
+r6Btn = Instance.new("TextButton")
+r6Btn.Size = UDim2.new(0, 140, 0, 30)
+r6Btn.Position = UDim2.new(0, 10, 0, 10)
+r6Btn.BackgroundColor3 = currentTheme.Button
+r6Btn.TextColor3 = currentTheme.TextColor
+r6Btn.Font = Enum.Font.SourceSansBold
+r6Btn.TextSize = 16
+r6Btn.Text = "Convert to R6"
+r6Btn.BorderSizePixel = 0
+r6Btn.Parent = settingsTab
+Instance.new("UICorner", r6Btn).CornerRadius = UDim.new(0, 6)
+-- Theme buttons in settings tab
+themeButtons = {}
+local themeNames = {"DarkGreen", "DarkBlue", "DarkGray"}
+for i, themeName in ipairs(themeNames) do
+	local btn = Instance.new("TextButton")
+	btn.Size = UDim2.new(0, 140, 0, 30)
+	btn.Position = UDim2.new(0, 10, 0, 50 + (i-1)*40)
+	btn.BackgroundColor3 = currentTheme.Button
+	btn.TextColor3 = currentTheme.TextColor
+	btn.Font = Enum.Font.SourceSansBold
+	btn.TextSize = 16
+	btn.Text = "Theme: " .. themeName
+	btn.BorderSizePixel = 0
+	btn.Parent = settingsTab
+	Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 6)
+	table.insert(themeButtons, btn)
+	btn.MouseButton1Click:Connect(function()
+		currentTheme = themes[themeName]
+		applyTheme(currentTheme)
+	end)
+end
+-- Minimize button
+closeBtn = Instance.new("TextButton")
+closeBtn.Size = UDim2.new(0, 100, 0, 30)
+closeBtn.Position = UDim2.new(1, -110, 0, 0)
+closeBtn.BackgroundColor3 = currentTheme.Button
+closeBtn.TextColor3 = currentTheme.TextColor
+closeBtn.Font = Enum.Font.SourceSansBold
+closeBtn.TextSize = 16
+closeBtn.Text = "Minimize"
+closeBtn.BorderSizePixel = 0
+closeBtn.Parent = frame
+Instance.new("UICorner", closeBtn).CornerRadius = UDim.new(0, 6)
+-- Function to switch tabs
+local function switchTab(name)
+	-- Hide all tabs & set buttons inactive
+	for tabName, tab in pairs(tabs) do
+		tab.Frame.Visible = false
+		tab.TabButton.BackgroundColor3 = currentTheme.TabButtonInactive
+		tab.TabButton.TextColor3 = currentTheme.TextColor
+	end
+	settingsTab.Visible = false
+	settingsTabBtn.BackgroundColor3 = currentTheme.TabButtonInactive
+	settingsTabBtn.TextColor3 = currentTheme.TextColor
+	if tabs[name] then
+		tabs[name].Frame.Visible = true
+		tabs[name].TabButton.BackgroundColor3 = currentTheme.TabButtonActive
+		tabs[name].TabButton.TextColor3 = currentTheme.TextColor
+		topBarText.Text = "- " .. name
+		activeTabButton = tabs[name].TabButton
+	elseif name == "Settings" then
+		settingsTab.Visible = true
+		settingsTabBtn.BackgroundColor3 = currentTheme.TabButtonActive
+		settingsTabBtn.TextColor3 = currentTheme.TextColor
+		topBarText.Text = "- Settings"
+		activeTabButton = settingsTabBtn
+	end
+end
+-- Connect tab buttons to switchTab
+for name, tab in pairs(tabs) do
+	tab.TabButton.MouseButton1Click:Connect(function()
+		switchTab(name)
+	end)
+end
+settingsTabBtn.MouseButton1Click:Connect(function()
+	switchTab("Settings")
+end)
+-- Start on Executor tab
+switchTab("Executor")
+-- Execute & Clear buttons per tab
+for _, tab in pairs(tabs) do
+	tab.ExecuteBtn.MouseButton1Click:Connect(function()
+		local code = tab.TextBox.Text
+		-- Block require and loadstring
+		if code:lower():match("require") then
+			tab.OutputLabel.Text = "[ ERROR ] Rc8 does not support require(). Lua only."
+			return
+		end
+		if code:lower():match("loadstring") then
+			tab.OutputLabel.Text = "[ ERROR ] Rc8 does not support loadstring()."
+			return
+		end
+		local success, result = pcall(function()
+			local fn = loadstring(code)
+			return fn()
+		end)
+		if success then
+			tab.OutputLabel.Text = "[ SUCCESS ]\n" .. tostring(result or "Code executed.")
+		else
+			tab.OutputLabel.Text = "[ ERROR ]\n" .. tostring(result)
+		end
+	end)
+	tab.ClearBtn.MouseButton1Click:Connect(function()
+		tab.TextBox.Text = ""
+		tab.OutputLabel.Text = "[ Output will show here ]"
+	end)
+end
+-- Minimize toggle
+local minimized = false
+closeBtn.MouseButton1Click:Connect(function()
+	if not minimized then
+		frame.Size = UDim2.new(0, 500, 0, 50)
+		for _, tab in pairs(tabs) do
+			tab.Frame.Visible = false
+			tab.TabButton.Visible = false
+		end
+		settingsTab.Visible = false
+		settingsTabBtn.Visible = false
+		tabBar.Visible = false
+		closeBtn.Text = "Expand"
+	else
+		frame.Size = UDim2.new(0, 500, 0, 400)
+		tabBar.Visible = true
+		for _, tab in pairs(tabs) do
+			tab.TabButton.Visible = true
+		end
+		settingsTabBtn.Visible = true
+		switchTab("Executor")
+		closeBtn.Text = "Minimize"
+	end
+	minimized = not minimized
+end)
+-- R6 Converter button behavior
+r6Btn.MouseButton1Click:Connect(function()
+	local character = player.Character or player.CharacterAdded:Wait()
+	local humanoid = character:FindFirstChildOfClass("Humanoid")
+	if not humanoid then
+		local activeTabName
+		for name, tab in pairs(tabs) do
+			if tab.Frame.Visible then
+				activeTabName = name
+				break
+			end
+		end
+		if activeTabName then
+			tabs[activeTabName].OutputLabel.Text = "[ ERROR ] No Humanoid found to convert."
+		end
+		return
+	end
+	-- Attempt to set RigType to R6
+	if humanoid.RigType == Enum.HumanoidRigType.R6 then
+		local activeTabName
+		for name, tab in pairs(tabs) do
+			if tab.Frame.Visible then
+				activeTabName = name
+				break
+			end
+		end
+		if activeTabName then
+			tabs[activeTabName].OutputLabel.Text = "[ INFO ] Already using R6 rig."
+		end
+		return
+	end
+	humanoid.RigType = Enum.HumanoidRigType.R6
+	player.Character = character
+	wait(1)
+	local activeTabName
+	for name, tab in pairs(tabs) do
+		if tab.Frame.Visible then
+			activeTabName = name
+			break
+		end
+	end
+	if activeTabName then
+		tabs[activeTabName].OutputLabel.Text = "[ SUCCESS ] Converted to R6 rig."
+	end
+end)
+-- Apply theme initially
+applyTheme(currentTheme)
